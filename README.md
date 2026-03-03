@@ -11,3 +11,7 @@ MacでPythonとJupyter Notebookをインストールする手順<br>
 3. セットアップはこれで完了<br>
    jupyter notebook は以下で実行できる<br>
    jupyter lab
+
+
+Jupyter Notebook から Pythonスクリプト(*.py) への変換は以下のコマンドで行う。<br>
+　　jupyter nbconvert --to python XXX.jpynb
