@@ -27,6 +27,7 @@ parser.add_argument('password', help='２番目の位置引数')
 #
 # オプションのパラメータは -- をつけて定義する。
 # 1文字の省略形を - で定義する事も可能。
+# お勧めではないが ２文字以上のパラメータを - だけで定義することもできる。
 parser.add_argument('--sample_flag', action='store_true', help='ON/OFFのフラグのサンプル。')
     # action を指定するとフラグになる。
     # ='store_true' とすると、パラメータがあると True, 無いと False のフラグになる。
@@ -34,6 +35,10 @@ parser.add_argument('--sample_flag', action='store_true', help='ON/OFFのフラ�
 parser.add_argument('-v', '--sample_value', default='デフォルトの値です', help='値を入力するためのパラメータのサンプル')
     # actionをつけないと値を伴うオプション。
     # default でデフォルト値を指定する事も可能。指定しないとデフォルトは None になる。
+
+parser.add_argument('-abc', action='store_true', help='-で２文字以上のパラメータを指定する時の例')
+    # -が１つになっているだけで、他の書き方は -- の時と書き方は同じ
+    # 上の例だと a b c の３つを指定した場合と区別がつきづらくなるので、好ましい使い方とされていない。
 
 #----------------------------
 # パラメータをパースする。
@@ -50,3 +55,8 @@ print(f'userid={args.userid}')
 print(f'password={args.password}')
 
 print(f'sample_value={args.sample_value}')
+
+if args.abc:
+    print('abc is ON')
+else:
+    print('abc is OFF')
